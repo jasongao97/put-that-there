@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Put That There workshop</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.0.5/lib/p5.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // ?step=0…4 runs a checkpoint; no step runs the finished sketch.js.
+      const step = new URLSearchParams(location.search).get("step");
+      const script = document.createElement("script");
+      script.src = /^[0-4]$/.test(step || "") ? `checkpoints/${step}.js` : "sketch.js";
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

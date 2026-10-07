@@ -1,0 +1,4 @@
+body { margin: 16px; font: 16px sans-serif; }
+canvas { display: block; }
+button { font: inherit; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
