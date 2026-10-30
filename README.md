@@ -32,3 +32,7 @@ How it works:
 - [Qwen - Key Concepts](https://qwen.readthedocs.io/en/latest/getting_started/concepts.html)
 - [Using the Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#speech_recognition)
 - [The Emperor Has No Clothes — a coding agent in 200 lines](https://www.mihaileric.com/The-Emperor-Has-No-Clothes/)
+
+## Acknowledgments
+
+Special thanks to Zairan Liu and Henry Haoyu Wang for their contributions to the development of this workshop.
