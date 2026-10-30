@@ -29,3 +29,6 @@ How it works:
 
 - [Bolt, SIGGRAPH 1980](https://www.media.mit.edu/speech/papers/1980/bolt_SIGGRAPH80_put-that-there.pdf)
 - [Coding Train #188 — Voice Chatbot](https://thecodingtrain.com/challenges/188-voice-chatbot)
+- [Qwen - Key Concepts](https://qwen.readthedocs.io/en/latest/getting_started/concepts.html)
+- [Using the Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#speech_recognition)
+- [The Emperor Has No Clothes — a coding agent in 200 lines](https://www.mihaileric.com/The-Emperor-Has-No-Clothes/)
