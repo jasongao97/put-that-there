@@ -176,8 +176,11 @@
       .reveal .workshop-qr {
         text-align: center;
       }
-      .reveal .workshop-qr h2 {
-        margin-bottom: 24px;
+      .reveal .workshop-qr-content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
       }
       .reveal .workshop-qr a {
         display: block;
@@ -189,6 +192,9 @@
         display: block;
         width: 100%;
         height: auto;
+        margin: 0;
+      }
+      .reveal .workshop-qr .caption {
         margin: 0;
       }
 
@@ -305,20 +311,22 @@
           class="workshop-qr"
           aria-label="Workshop guide"
         >
-          <a
-            href="https://github.com/jasongao97/put-that-there/blob/main/WORKSHOP.md"
-          >
-            <img
-              src="docs/workshop-qr.svg"
-              width="360"
-              height="360"
-              alt="QR code linking to the Put That There workshop guide"
-            />
-          </a>
-          <p class="caption">
-            Scan to open the workshop guide,<br />with code snippets and
-            checkpoints.
-          </p>
+          <div class="workshop-qr-content">
+            <a
+              href="https://github.com/jasongao97/put-that-there/blob/main/WORKSHOP.md"
+            >
+              <img
+                src="docs/workshop-qr.svg"
+                width="360"
+                height="360"
+                alt="QR code linking to the Put That There workshop guide"
+              />
+            </a>
+            <p class="caption">
+              Scan to open the workshop guide,<br />with code snippets and
+              checkpoints.
+            </p>
+          </div>
         </section>
         <section
           data-markdown="SLIDES.md"
