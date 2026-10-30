@@ -27,6 +27,8 @@ Use **desktop Chrome**. Keep the p5 Editor's console open.
 
 Make a new sketch in the [p5 Web Editor](https://editor.p5js.org/).
 
+The [p5.js collection](https://editor.p5js.org/jasongao97/collections/FYeiyFz8t) has the finished workshop and extended sketches to try or use as a reference.
+
 ---
 
 ## Step 1 · Input: hear the words
@@ -274,7 +276,7 @@ In `act()`, change the two messages to:
 
 Point, say "draw a red circle here", and **hold the mouse still** until it appears. Then try "put a green square in the top left".
 
-Finished sketch: [sketch.js](workshop/sketch.js)
+Finished sketch: [Open in the p5 Web Editor](https://editor.p5js.org/jasongao97/sketches/1Vw9jKi72) · [Source](workshop/sketch.js)
 
 ## If something breaks
 
@@ -291,9 +293,9 @@ No mic? Type `act("draw a red circle")` in the console.
 
 ## What's next
 
-The [extended sketch](extended/) picks up where today's sketch ends:
+The [extended sketch](https://editor.p5js.org/jasongao97/sketches/xLu7OoItg) picks up where today's sketch ends:
 
 - **More to draw:** triangles, and a `size` for each shape.
 - **More tools:** `move`, `recolor`, `resize` and `delete`. Point at a shape and say "make that green" or "move it to the right".
 
-Copy the script file into the [p5 Web Editor](https://editor.p5js.org/) to try it. The [README](README.md#the-extended-sketch) explains how it works.
+Run it in the p5 Web Editor, then click **Start** to try it. The [source files](extended/) are also in this repository, and the [README](README.md#the-extended-sketch) explains how it works.

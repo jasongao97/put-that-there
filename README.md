@@ -4,18 +4,20 @@ Point at a canvas and speak; a small language model in your browser draws what y
 
 **[▶ Open the slides](https://jasongao97.github.io/put-that-there/slides.html)**
 
-| Path                       | What it is                                                     |
-| -------------------------- | -------------------------------------------------------------- |
-| [SLIDES.md](SLIDES.md)     | Workshop slides                                                |
-| [WORKSHOP.md](WORKSHOP.md) | Participant handout with every snippet                         |
-| [workshop/](workshop/)     | checkpoints and the finished [`sketch.js`](workshop/sketch.js) |
-| [extended/](extended/)     | A fuller version to explore after the workshop                 |
+Workshop materials: [Slides](SLIDES.md) · [Guide](WORKSHOP.md)
+
+| Sketch                                   | Source                 | p5 Web Editor                                                 |
+| ---------------------------------------- | ---------------------- | ------------------------------------------------------------- |
+| Workshop — finished sketch               | [workshop/](workshop/) | [Open](https://editor.p5js.org/jasongao97/sketches/1Vw9jKi72) |
+| Extended — more shapes and editing tools | [extended/](extended/) | [Open](https://editor.p5js.org/jasongao97/sketches/xLu7OoItg) |
+
+Browse both in the [p5 web editor collection](https://editor.p5js.org/jasongao97/collections/FYeiyFz8t).
 
 ## The extended sketch
 
 It adds shapes you can edit and more tools. Like the workshop sketch, it keeps listening once the model has loaded.
 
-1. Open it in Chrome and click **Start**. The first download takes a few minutes. Allow the mic when it asks.
+1. Open the [extended sketch](https://editor.p5js.org/jasongao97/sketches/xLu7OoItg) in Chrome, run the sketch, then click **Start**. The first download takes a few minutes. Allow the mic when it asks.
 2. Point and say **"Draw a red square here."**
 3. Point at a shape and try **"Make that green"**, **"Move it to the right"** or **"Delete that."**
 
@@ -35,4 +37,4 @@ How it works:
 
 ## Acknowledgments
 
-Special thanks to Zairan Liu and Henry Haoyu Wang for their contributions to the development of this workshop.
+Special thanks to zairan liu and Henry Haoyu Wang for their contributions to the development of this workshop.
