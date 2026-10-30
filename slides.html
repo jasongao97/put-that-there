@@ -4,8 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Put That There slides</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+    />
     <style>
       :root {
         --bg: #ebebeb;
@@ -13,93 +19,311 @@
         --muted: #6b6b6b;
         --faint: #adadad;
         --panel: #e0e0e0;
-        --sans: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+        --sans:
+          ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial,
+          sans-serif;
         --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       }
 
       /* No motion anywhere. */
-      .reveal *, .reveal *::before, .reveal *::after { transition: none !important; animation: none !important; }
+      .reveal *,
+      .reveal *::before,
+      .reveal *::after {
+        transition: none !important;
+        animation: none !important;
+      }
 
       /* ---------- Base ---------- */
-      .reveal-viewport { background: var(--bg); }
-      .reveal { font-family: var(--sans); font-size: 32px; color: var(--fg); }
-      .reveal .slides { text-align: left; }
-      .reveal .slides > section { box-sizing: border-box; height: 100%; padding: 76px 110px; }
+      .reveal-viewport {
+        background: var(--bg);
+      }
+      .reveal {
+        font-family: var(--sans);
+        font-size: 32px;
+        color: var(--fg);
+      }
+      .reveal .slides {
+        text-align: left;
+      }
+      .reveal .slides > section {
+        box-sizing: border-box;
+        height: 100%;
+        padding: 76px 110px;
+      }
 
-      .reveal h1, .reveal h2, .reveal .stats b { font-weight: 650; letter-spacing: -0.025em; line-height: 1.1; }
-      .reveal h1 { margin: 0 0 0.25em; font-size: 2.8em; }
-      .reveal h2 { margin: 0 0 1em; font-size: 1.6em; }
-      .reveal b, .reveal strong { font-weight: 650; }
+      .reveal h1,
+      .reveal h2,
+      .reveal .stats b {
+        font-weight: 650;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+      }
+      .reveal h1 {
+        margin: 0 0 0.25em;
+        font-size: 2.8em;
+      }
+      .reveal h2 {
+        margin: 0 0 1em;
+        font-size: 1.6em;
+      }
+      .reveal b,
+      .reveal strong {
+        font-weight: 650;
+      }
 
-      .reveal p, .reveal li { line-height: 1.45; }
-      .reveal p { margin: 0 0 0.7em; }
-      .reveal ul { margin: 0; padding-left: 1em; }
-      .reveal li { margin: 0.3em 0; }
-      .reveal li::marker { color: var(--muted); }
-      .reveal a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--faint); }
+      .reveal p,
+      .reveal li {
+        line-height: 1.45;
+      }
+      .reveal p {
+        margin: 0 0 0.7em;
+      }
+      .reveal ul {
+        margin: 0;
+        padding-left: 1em;
+      }
+      .reveal li {
+        margin: 0.3em 0;
+      }
+      .reveal li::marker {
+        color: var(--muted);
+      }
+      .reveal a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid var(--faint);
+      }
 
       /* Muted text comes in two styles: small print, and uppercase labels. */
-      .reveal .caption, .reveal .byline, .reveal .stats span { color: var(--muted); font-size: 0.6em; }
-      .reveal .kicker, .reveal .label { margin: 0 0 0.9em; color: var(--muted); font-size: 0.5em; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; }
+      .reveal .caption,
+      .reveal .byline,
+      .reveal .stats span {
+        color: var(--muted);
+        font-size: 0.6em;
+      }
+      .reveal .kicker,
+      .reveal .label {
+        margin: 0 0 0.9em;
+        color: var(--muted);
+        font-size: 0.5em;
+        font-weight: 650;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
 
       /* ---------- Code and panels ---------- */
-      .reveal code, .reveal .chat, .reveal .diagram .tag, .reveal .diagram .code { font-family: var(--mono); }
-      .reveal :not(pre) > code { padding: 0.05em 0.3em; border-radius: 4px; background: var(--panel); font-size: 0.8em; }
-      .reveal pre, .reveal .chat { margin: 0 0 1.2em; font-size: 0.6em; line-height: 1.6; }
-      .reveal pre code, .reveal .chat { padding: 1em 1.3em; border-radius: 10px; background: var(--panel); color: var(--fg); white-space: pre-wrap; }
+      .reveal code,
+      .reveal .chat,
+      .reveal .diagram .tag,
+      .reveal .diagram .code {
+        font-family: var(--mono);
+      }
+      .reveal :not(pre) > code {
+        padding: 0.05em 0.3em;
+        border-radius: 4px;
+        background: var(--panel);
+        font-size: 0.8em;
+      }
+      .reveal pre,
+      .reveal .chat {
+        margin: 0 0 1.2em;
+        font-size: 0.6em;
+        line-height: 1.6;
+      }
+      .reveal pre code,
+      .reveal .chat {
+        padding: 1em 1.3em;
+        border-radius: 10px;
+        background: var(--panel);
+        color: var(--fg);
+        white-space: pre-wrap;
+      }
 
       /* One static highlight per block: the rest steps back. */
-      .reveal .hljs-ln-numbers { display: none; }
-      .reveal .hljs.has-highlights tr:not(.highlight-line) { opacity: 0.3; }
+      .reveal .hljs-ln-numbers {
+        display: none;
+      }
+      .reveal .hljs.has-highlights tr:not(.highlight-line) {
+        opacity: 0.3;
+      }
 
       /* Chat template: each predicted token gets its own color, like a tokenizer view. */
-      .reveal .chat .dim { color: var(--faint); }
-      .reveal .chat mark { margin-right: 5px; padding: 1px 3px; border-radius: 4px; }
-      .reveal .chat mark:nth-of-type(5n+1) { background: #ffd8d6; }
-      .reveal .chat mark:nth-of-type(5n+2) { background: #ffe9b0; }
-      .reveal .chat mark:nth-of-type(5n+3) { background: #c8efd4; }
-      .reveal .chat mark:nth-of-type(5n+4) { background: #cfe2ff; }
-      .reveal .chat mark:nth-of-type(5n+5) { background: #e6d5ff; }
+      .reveal .chat .dim {
+        color: var(--faint);
+      }
+      .reveal .chat mark {
+        margin-right: 5px;
+        padding: 1px 3px;
+        border-radius: 4px;
+      }
+      .reveal .chat mark:nth-of-type(5n + 1) {
+        background: #ffd8d6;
+      }
+      .reveal .chat mark:nth-of-type(5n + 2) {
+        background: #ffe9b0;
+      }
+      .reveal .chat mark:nth-of-type(5n + 3) {
+        background: #c8efd4;
+      }
+      .reveal .chat mark:nth-of-type(5n + 4) {
+        background: #cfe2ff;
+      }
+      .reveal .chat mark:nth-of-type(5n + 5) {
+        background: #e6d5ff;
+      }
 
       /* ---------- Layouts ---------- */
-      .reveal .slides > section.cover { padding-top: 190px; }
-      .reveal .subtitle { color: var(--muted); font-size: 1.25em; }
-      .reveal .byline { margin-top: 3.2em; }
+      .reveal .workshop-qr {
+        text-align: center;
+      }
+      .reveal .workshop-qr h2 {
+        margin-bottom: 24px;
+      }
+      .reveal .workshop-qr a {
+        display: block;
+        width: 360px;
+        margin: 0 auto 24px;
+        border: 0;
+      }
+      .reveal .workshop-qr img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
 
-      .reveal .cols, .reveal .stats { display: grid; gap: 48px; align-items: start; }
-      .reveal .cols { grid-template-columns: 1.7fr 1fr; }
-      .reveal .stats { grid-template-columns: repeat(3, 1fr); }
-      .reveal .stats > div { padding-top: 0.8em; border-top: 2px solid var(--fg); }
-      .reveal .stats b { display: block; margin-bottom: 0.15em; font-size: 2.6em; }
+      .reveal .slides > section.cover {
+        padding-top: 190px;
+      }
+      .reveal .subtitle {
+        color: var(--muted);
+        font-size: 1.25em;
+      }
+      .reveal .byline {
+        margin-top: 3.2em;
+      }
+
+      .reveal .cols,
+      .reveal .stats {
+        display: grid;
+        gap: 48px;
+        align-items: start;
+      }
+      .reveal .cols {
+        grid-template-columns: 1.7fr 1fr;
+      }
+      .reveal .stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .reveal .stats > div {
+        padding-top: 0.8em;
+        border-top: 2px solid var(--fg);
+      }
+      .reveal .stats b {
+        display: block;
+        margin-bottom: 0.15em;
+        font-size: 2.6em;
+      }
 
       /* Idea list: one row each, name then detail. */
-      .reveal .ideas { border-bottom: 1px solid var(--faint); font-size: 0.85em; }
-      .reveal .ideas > div { display: grid; grid-template-columns: 12em 1fr; gap: 48px; align-items: baseline; padding: 0.7em 0; border-top: 1px solid var(--faint); }
-      .reveal .ideas span { color: var(--muted); }
+      .reveal .ideas {
+        border-bottom: 1px solid var(--faint);
+        font-size: 0.85em;
+      }
+      .reveal .ideas > div {
+        display: grid;
+        grid-template-columns: 12em 1fr;
+        gap: 48px;
+        align-items: baseline;
+        padding: 0.7em 0;
+        border-top: 1px solid var(--faint);
+      }
+      .reveal .ideas span {
+        color: var(--muted);
+      }
 
       /* Sized so the video ends at the bottom padding, like other slides. */
-      .reveal .video iframe { width: 752px; height: auto; aspect-ratio: 16 / 9; border-radius: 10px; background: var(--panel); }
+      .reveal .video iframe {
+        width: 752px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        background: var(--panel);
+      }
 
       /* Three-parts diagram: shapes and text follow the text color. */
-      .reveal .diagram svg { stroke-width: 1.5; }
-      .reveal .diagram text, .reveal .diagram .head { fill: currentColor; }
-      .reveal .diagram text { text-anchor: middle; }
-      .reveal .diagram .name { font-size: 22px; font-weight: 650; }
-      .reveal .diagram .tag { color: var(--muted); font-size: 15px; }
-      .reveal .diagram .box { fill: var(--bg); stroke: currentColor; }
-      .reveal .diagram .edge { fill: none; stroke: currentColor; }
-      .reveal .diagram .side { color: var(--faint); stroke-dasharray: 5 4; }
+      .reveal .diagram svg {
+        stroke-width: 1.5;
+      }
+      .reveal .diagram text,
+      .reveal .diagram .head {
+        fill: currentColor;
+      }
+      .reveal .diagram text {
+        text-anchor: middle;
+      }
+      .reveal .diagram .name {
+        font-size: 22px;
+        font-weight: 650;
+      }
+      .reveal .diagram .tag {
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .reveal .diagram .box {
+        fill: var(--bg);
+        stroke: currentColor;
+      }
+      .reveal .diagram .edge {
+        fill: none;
+        stroke: currentColor;
+      }
+      .reveal .diagram .side {
+        color: var(--faint);
+        stroke-dasharray: 5 4;
+      }
 
       /* ---------- Chrome ---------- */
-      .reveal .progress { color: var(--fg); }
-      .reveal .slide-number { right: 40px; bottom: 28px; background: none; color: var(--muted); font: 13px/1 var(--sans); }
+      .reveal .progress {
+        color: var(--fg);
+      }
+      .reveal .slide-number {
+        right: 40px;
+        bottom: 28px;
+        background: none;
+        color: var(--muted);
+        font: 13px/1 var(--sans);
+      }
     </style>
   </head>
   <body>
     <!-- Serve over http (python3 -m http.server) so SLIDES.md can load. Press S for speaker notes, F for fullscreen. -->
     <div class="reveal">
       <div class="slides">
-        <section data-markdown="SLIDES.md" data-separator-notes="^Note:"></section>
+        <section
+          id="workshop-guide"
+          class="workshop-qr"
+          aria-label="Workshop guide"
+        >
+          <a
+            href="https://github.com/jasongao97/put-that-there/blob/main/WORKSHOP.md"
+          >
+            <img
+              src="docs/workshop-qr.svg"
+              width="360"
+              height="360"
+              alt="QR code linking to the Put That There workshop guide"
+            />
+          </a>
+          <p class="caption">
+            Scan to open the workshop guide,<br />with code snippets and
+            checkpoints.
+          </p>
+        </section>
+        <section
+          data-markdown="SLIDES.md"
+          data-separator-notes="^Note:"
+        ></section>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
@@ -118,10 +342,17 @@
         center: false,
         controls: false,
         progress: true,
-        slideNumber: "c/t",
+        slideNumber: (slide) => {
+          // The pre-talk slide is -1; the existing deck keeps its original numbering.
+          const index = Reveal.getSlides().indexOf(slide);
+          return index === 0
+            ? ["-1"]
+            : [index, "/", Reveal.getTotalSlides() - 1];
+        },
         transition: "none",
         backgroundTransition: "none",
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      });    </script>
+      });
+    </script>
   </body>
 </html>
