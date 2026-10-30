@@ -9,7 +9,7 @@ recognition.continuous = true;
 recognition.onresult = ({ results, resultIndex }) => {
   const transcript = results[resultIndex][0].transcript;
   console.log(transcript);
-  act(transcript);
+  runCommand(transcript);
 };
 
 function setup() {
@@ -17,10 +17,10 @@ function setup() {
   background(0);
   rectMode(CENTER);
   status = createP("Loading model...");
-  loadModels();
+  loadBrain();
 }
 
-async function loadModels() {
+async function loadBrain() {
   const { pipeline } = await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0");
   llm = await pipeline("text-generation", "onnx-community/Qwen3-0.6B-ONNX", {
     device: "webgpu",
@@ -42,10 +42,10 @@ function drawShape({ shape, color, x = width / 2, y = height / 2 }) {
   }
 }
 
-async function act(prompt) {
+async function runCommand(text) {
   const messages = [
     { role: "system", content: "You are a helpful agent." },
-    { role: "user", content: prompt },
+    { role: "user", content: text },
   ];
 
   const response = await llm(messages, {

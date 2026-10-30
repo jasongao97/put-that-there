@@ -170,7 +170,7 @@ Note:
 ## Load the brain
 
 ```js [3-6]
-async function loadModels() {
+async function loadBrain() {
   const { pipeline } = await import("https://.../transformers@4.3.0");
   llm = await pipeline("text-generation", "onnx-community/Qwen3-0.6B-ONNX", {
     device: "webgpu",
@@ -181,9 +181,9 @@ async function loadModels() {
 ```
 
 Note:
-- 24–27 min. Copy loadModels() from the handout; the highlighted lines are the part to read together: which model, on the GPU, 4-bit.
-- Also from the handout: let llm; let status; at the top. In setup(), replace recognition.start() with status = createP(...) and loadModels().
-- recognition.start() now runs at the end of loadModels(), so we only listen once the brain is ready.
+- 24–27 min. Copy loadBrain() from the handout; the highlighted lines are the part to read together: which model, on the GPU, 4-bit.
+- Also from the handout: let llm; let status; at the top. In setup(), replace recognition.start() with status = createP(...) and loadBrain().
+- recognition.start() now runs at the end of loadBrain(), so we only listen once the brain is ready.
 - Press play now. The first download takes a while, and even from cache it takes close to a minute.
 
 ---
@@ -203,7 +203,7 @@ Note:
 - 0.6 B: the model has 0.6 billion learned numbers (parameters). It is distilled: trained to imitate bigger Qwen3 models.
 - q4f16: most numbers stored in 4 bits (quantization), so the download is about 0.5 GB. Transformers.js runs it on the laptop's GPU with WebGPU.
 - Small means fast and private, but it makes more mistakes.
-- Once loaded: type act() from the handout and call it from onresult instead of the keyword rule. enable_thinking: false skips the model's "thinking" so it answers fast.
+- Once loaded: type runCommand() from the handout and call it from onresult instead of the keyword rule. enable_thinking: false skips the model's "thinking" so it answers fast.
 - Say "draw a red circle": the model replies with text like "Sure! Here's a red circle…" and nothing is drawn. Why? It can only write text. Checkpoint 3.
 - Sources: https://huggingface.co/Qwen/Qwen3-0.6B · https://huggingface.co/docs/transformers.js/guides/dtypes
 
@@ -270,7 +270,7 @@ drawShape(call.arguments);
 Note:
 - 38–46 min. Say "draw a red circle" and show the console: the reply is now a tool_call, a function name and its inputs, as text.
 - Our code turns that text back into an object with JSON.parse, the same object we typed by hand in Step 2, and calls drawShape with it.
-- Copy the loop from the handout into act(), after console.log(reply). Skip explaining the regex: it only finds the text between the tags.
+- Copy the loop from the handout into runCommand(), after console.log(reply). Skip explaining the regex: it only finds the text between the tags.
 - The model often skips x and y even though they're required. The schema is a request, not a guarantee, which is why drawShape has defaults.
 - Say "draw a blue square". Then point at a corner and say "draw a red circle here": it lands somewhere else. Why? Checkpoint 4.
 
@@ -283,7 +283,7 @@ Note:
 ```js [3]
 const messages = [
   { role: "system", content: "You control a 400 by 400 canvas." },
-  { role: "user", content: `I am pointing at (${mouseX}, ${mouseY}), ` + prompt },
+  { role: "user", content: `I am pointing at (${mouseX}, ${mouseY}), ` + text },
 ];
 ```
 

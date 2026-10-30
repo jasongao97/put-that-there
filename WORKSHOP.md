@@ -118,7 +118,7 @@ let status;
 Below `setup()`:
 
 ```js
-async function loadModels() {
+async function loadBrain() {
   const { pipeline } = await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0");
   llm = await pipeline("text-generation", "onnx-community/Qwen3-0.6B-ONNX", {
     device: "webgpu",
@@ -136,7 +136,7 @@ In `setup()`, replace `recognition.start();` with:
 
 ```js
   status = createP("Loading model...");
-  loadModels();
+  loadBrain();
 ```
 
 - `import(...)` loads Transformers.js, a library that runs models in the browser.
@@ -150,10 +150,10 @@ Press Play. Loading takes about a minute.
 At the bottom of `sketch.js`:
 
 ```js
-async function act(prompt) {
+async function runCommand(text) {
   const messages = [
     { role: "system", content: "You are a helpful agent." },
-    { role: "user", content: prompt },
+    { role: "user", content: text },
   ];
 
   const response = await llm(messages, {
@@ -167,7 +167,7 @@ async function act(prompt) {
 In `onresult`, replace the keyword `if` block with:
 
 ```js
-  act(transcript);
+  runCommand(transcript);
 ```
 
 Say "draw a red circle". The model replies with text, but nothing is drawn. Why?
@@ -183,7 +183,7 @@ Checkpoint: [3.js](workshop/checkpoints/3.js)
 
 The model can only write text. So we describe a **function** it can call.
 
-Above `async function act`:
+Above `async function runCommand`:
 
 ```js
 const tools = [
@@ -223,7 +223,7 @@ const tools = [
 - `properties` are the same four fields as `drawShape`. `enum` limits `shape` to circle or square.
 - This only describes the function. The model can't run anything.
 
-In `act()`, add `tools,` to the `llm(...)` call:
+In `runCommand()`, add `tools,` to the `llm(...)` call:
 
 ```js
   const response = await llm(messages, {
@@ -242,7 +242,7 @@ Say "draw a red circle". The reply is now a request:
 </tool_call>
 ```
 
-In `act()`, after `console.log(reply);`:
+In `runCommand()`, after `console.log(reply);`:
 
 ```js
   const matches = reply.matchAll(/<tool_call>(.*?)<\/tool_call>/gs);
@@ -264,11 +264,11 @@ Checkpoint: [4.js](workshop/checkpoints/4.js)
 
 The model can't see the canvas or the mouse. It only knows what's in `messages`.
 
-In `act()`, change the two messages to:
+In `runCommand()`, change the two messages to:
 
 ```js
     { role: "system", content: "You control a 400 by 400 canvas." },
-    { role: "user", content: `I am pointing at (${mouseX}, ${mouseY}), ` + prompt },
+    { role: "user", content: `I am pointing at (${mouseX}, ${mouseY}), ` + text },
 ```
 
 - The canvas size makes words like "top left" meaningful.
@@ -289,7 +289,7 @@ Check the console to find which part failed: the transcript (input), the `<tool_
 | Model won't load                   | The laptop may not support WebGPU.                   |
 | `JSON.parse` error                 | Try again. The model sometimes writes a bad format.  |
 
-No mic? Type `act("draw a red circle")` in the console.
+No mic? Type `runCommand("draw a red circle")` in the console.
 
 ## What's next
 

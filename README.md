@@ -25,7 +25,7 @@ How it works:
 
 - **`tools`** lists what the model can call: `create`, `move`, `recolor`, `resize` and `delete`.
 - **`actions`** runs each tool. Every shape gets an `id` so later commands can refer to it.
-- **`command(text)`** sends the request, the mouse position and the current shapes to the model, then runs each `<tool_call>` it returns.
+- **`runCommand(text)`** sends the request, the mouse position and the current shapes to the model, then runs each `<tool_call>` it returns.
 
 ## More to read / watch
 

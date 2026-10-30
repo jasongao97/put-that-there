@@ -10,7 +10,7 @@ recognition.continuous = true;
 
 recognition.onresult = ({ results, resultIndex }) => {
   const transcript = results[resultIndex][0].transcript;
-  recognize(transcript);
+  runCommand(transcript);
 };
 
 // The tools the model may call, described as JSON Schema.
@@ -140,7 +140,7 @@ function byId(id) {
 function setup() {
   createCanvas(720, 360).parent("canvas");
   rectMode(CENTER);
-  select("#start").mousePressed(start);
+  select("#start").mousePressed(loadBrain);
 }
 
 function draw() {
@@ -170,7 +170,7 @@ function setAnswer(text) {
   select("#answer").elt.textContent = text;
 }
 
-async function start() {
+async function loadBrain() {
   select("#start").attribute("disabled", "");
   const { pipeline } =
     await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0");
@@ -187,14 +187,9 @@ async function start() {
   recognition.start();
 }
 
-async function recognize(text) {
+// Text + scene + mouse position in, tool calls out. Try it without the mic: runCommand('draw a blue triangle here')
+async function runCommand(text) {
   setStatus("Thinking…");
-  await command(text);
-  setStatus("Listening…");
-}
-
-// Text + scene + mouse position in, tool calls out. Try it without the mic: command('draw a blue triangle here')
-async function command(text) {
   // The model can only edit shapes it can see, so list them with their ids.
   // They go in the system message: in the user message the model re-creates them.
   const list = scene
@@ -233,4 +228,5 @@ async function command(text) {
     const call = JSON.parse(match[1]);
     actions[call.name](call.arguments);
   }
+  setStatus("Listening…");
 }
